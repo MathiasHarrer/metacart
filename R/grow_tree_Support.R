@@ -44,7 +44,7 @@ find_triplet <- function(xk, nodeMbrship, y, vi, minbucket, minsplit) {
       re.cutoff_cpp(y, vi, xk.rank[[as.character(x)]][as.character(xk[nodeMbrship == (x)])], 
                     nodeMbrship == x, nodeMbrship, minbucket) )
   }
-  if(class(tempQ) == "list") {  # At least one split is not eligible
+  if(class(tempQ)[1] == "list") {  # At least one split is not eligible
     if (all(sapply(tempQ, is.null))) {  # no eligible splits
       list(pleaf = NA, cstar = c(NA, -Inf, NA), rank = NULL)
     } else {  # if one split is not eligible (NULL), make its Q-between = -Inf
